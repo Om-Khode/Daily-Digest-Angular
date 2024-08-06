@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { NewsService } from '../news.service';
+import { NewsService } from '../../services/news.service';
 import {
   animate,
   state,

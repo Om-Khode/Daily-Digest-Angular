@@ -3,7 +3,7 @@ import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideToastr } from 'ngx-toastr';
-import { ThemeService } from './theme.service';
+import { ThemeService } from '../services/theme.service';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 export const appConfig: ApplicationConfig = {
@@ -14,6 +14,5 @@ export const appConfig: ApplicationConfig = {
     provideToastr(),
     ThemeService,
     provideAnimationsAsync(),
-
   ],
 };

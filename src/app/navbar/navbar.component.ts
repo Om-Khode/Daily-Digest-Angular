@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { ThemeService } from '../theme.service';
+import { ThemeService } from '../../services/theme.service';
 import { CommonModule } from '@angular/common';
 import { NavigationEnd, RouterModule } from '@angular/router';
 import { ToggleModeComponent } from '../toggle-mode/toggle-mode.component';
-import { UserService } from '../user.service';
+import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
 import {
   animate,

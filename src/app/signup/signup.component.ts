@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, Input } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { UserService } from '../user.service';
-import { ThemeService } from '../theme.service';
+import { UserService } from '../../services/user.service';
+import { ThemeService } from '../../services/theme.service';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -53,6 +53,7 @@ export class SignupComponent {
     password = password?.trim();
 
     if (!password) {
+      this.passwordError = ['Password is required'];
       return;
     }
 

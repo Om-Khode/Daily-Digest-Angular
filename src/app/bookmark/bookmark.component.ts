@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { ThemeService } from '../theme.service';
-import { UserService } from '../user.service';
-import { NewsService } from '../news.service';
+import { ThemeService } from '../../services/theme.service';
+import { UserService } from '../../services/user.service';
+import { NewsService } from '../../services/news.service';
 import { NewsItemComponent } from '../news-item/news-item.component';
 import { CommonModule } from '@angular/common';
 

@@ -6,29 +6,60 @@
   >
     <div class="mb-3">
       <label for="email" class="form-label"> Email address </label>
-      <input
-        type="email"
-        [ngClass]="{
-          'form-control form-control-sm': true,
-          'bg-dark text-light': isDarkMode
-        }"
-        id="email"
-        formControlName="email"
-        required
-      />
-    </div>
-    <div class="mb-3">
-      <label for="password" class="form-label"> Password </label>
-      <input
-        type="password"
-        [ngClass]="{
-          'form-control form-control-sm': true,
-          'bg-dark text-light': isDarkMode
-        }"
-        id="password"
-        formControlName="password"
-        required
-      />
+      <div class="d-flex justify-content-center align-items-center">
+        <input
+          type="email"
+          [ngClass]="{
+            'form-control form-control-sm': true,
+            'bg-dark text-light': isDarkMode
+          }"
+          id="email"
+          formControlName="email"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label"> Password </label>
+        <div class="d-flex justify-content-center align-items-center">
+          <input
+            [type]="showPassword ? 'text' : 'password'"
+            [ngClass]="{
+              'form-control form-control-sm password-input': true,
+              'bg-dark text-light': isDarkMode
+            }"
+            id="password"
+            formControlName="password"
+            required
+          />
+          <button
+            [ngClass]="{
+              'show-password-btn': true,
+              'bg-dark text-light': isDarkMode
+            }"
+            (click)="handleShowPassword()"
+            type="button"
+          >
+            <img
+              *ngIf="!showPassword"
+              [src]="
+                !isDarkMode
+                  ? 'assets/images/eye-fill-light.svg'
+                  : 'assets/images/eye-fill.svg'
+              "
+              alt=""
+            />
+            <img
+              *ngIf="showPassword"
+              [src]="
+                !isDarkMode
+                  ? 'assets/images/eye-slash-fill-light.svg'
+                  : 'assets/images/eye-slash-fill.svg'
+              "
+              alt=""
+            />
+          </button>
+        </div>
+      </div>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>

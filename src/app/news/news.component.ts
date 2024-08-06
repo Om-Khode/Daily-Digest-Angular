@@ -1,9 +1,9 @@
-import { Component, inject } from '@angular/core';
-import { ThemeService } from '../theme.service';
+import { Component, inject, ViewChild } from '@angular/core';
+import { ThemeService } from '../../services/theme.service';
 import { CommonModule } from '@angular/common';
 import { NewsItemComponent } from '../news-item/news-item.component';
-import { UserService } from '../user.service';
-import { NewsService } from '../news.service';
+import { UserService } from '../../services/user.service';
+import { NewsService } from '../../services/news.service';
 import { ActivatedRoute } from '@angular/router';
 import { InfiniteScrollDirective } from 'ngx-infinite-scroll';
 import {

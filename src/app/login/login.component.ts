@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { ThemeService } from '../theme.service';
-import { UserService } from '../user.service';
+import { ThemeService } from '../../services/theme.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -12,6 +12,8 @@ import { UserService } from '../user.service';
   styleUrl: './login.component.css',
 })
 export class LoginComponent {
+  showPassword: boolean = false;
+
   loginForm = new FormGroup({
     email: new FormControl(''),
     password: new FormControl(''),
@@ -19,12 +21,19 @@ export class LoginComponent {
 
   isDarkMode: boolean = false;
 
-  constructor(private themeService: ThemeService, private userService: UserService) {}
+  constructor(
+    private themeService: ThemeService,
+    private userService: UserService
+  ) {}
 
   ngOnInit() {
     this.themeService.darkMode$.subscribe((isDark) => {
       this.isDarkMode = isDark;
     });
+  }
+
+  handleShowPassword() {
+    this.showPassword = !this.showPassword;
   }
 
   submitApplication() {
