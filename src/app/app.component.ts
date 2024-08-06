@@ -17,6 +17,5 @@ export class AppComponent {
 
   toggleDarkMode() {
     this.isDarkMode = !this.isDarkMode;
-    console.log('Dark mode is now:', this.isDarkMode);
   }
 }

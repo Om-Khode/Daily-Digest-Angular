@@ -31,8 +31,7 @@
             <a
               [ngClass]="{
                 'nav-link': true,
-                active:
-                  title === '' || title === 'general' || title === undefined
+                active: title === '/' || title === '/news/general'
               }"
               routerLink="news"
             >
@@ -41,7 +40,10 @@
           </li>
           <li class="nav-item">
             <a
-              [ngClass]="{ 'nav-link': true, active: title === 'business' }"
+              [ngClass]="{
+                'nav-link': true,
+                active: title === '/news/business'
+              }"
               routerLink="news/business"
             >
               Business
@@ -51,7 +53,7 @@
             <a
               [ngClass]="{
                 'nav-link': true,
-                active: title === 'entertainment'
+                active: title === '/news/entertainment'
               }"
               routerLink="news/entertainment"
             >
@@ -60,7 +62,7 @@
           </li>
           <li class="nav-item">
             <a
-              [ngClass]="{ 'nav-link': true, active: title === 'health' }"
+              [ngClass]="{ 'nav-link': true, active: title === '/news/health' }"
               routerLink="news/health"
             >
               Health
@@ -68,7 +70,10 @@
           </li>
           <li class="nav-item">
             <a
-              [ngClass]="{ 'nav-link': true, active: title === 'science' }"
+              [ngClass]="{
+                'nav-link': true,
+                active: title === '/news/science'
+              }"
               routerLink="news/science"
             >
               Science
@@ -76,7 +81,7 @@
           </li>
           <li class="nav-item">
             <a
-              [ngClass]="{ 'nav-link': true, active: title === 'sports' }"
+              [ngClass]="{ 'nav-link': true, active: title === '/news/sports' }"
               routerLink="news/sports"
             >
               Sports
@@ -84,7 +89,10 @@
           </li>
           <li class="nav-item">
             <a
-              [ngClass]="{ 'nav-link': true, active: title === 'technology' }"
+              [ngClass]="{
+                'nav-link': true,
+                active: title === '/news/technology'
+              }"
               routerLink="news/technology"
             >
               Technology
@@ -92,7 +100,10 @@
           </li>
           <li *ngIf="isLoggedIn" class="nav-item">
             <a
-              [ngClass]="{ 'nav-link': true, active: title === 'bookmark' }"
+              [ngClass]="{
+                'nav-link': true,
+                active: title === '/news/bookmark'
+              }"
               routerLink="news/bookmark"
             >
               Bookmarked

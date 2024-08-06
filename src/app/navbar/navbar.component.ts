@@ -46,7 +46,7 @@ export class NavbarComponent {
   ) {
     this.router.events.forEach((e) => {
       if (e instanceof NavigationEnd) {
-        this.title = e.url.split('/')[2];
+        this.title = e.url;
       }
     });
   }

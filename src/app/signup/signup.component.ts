@@ -82,7 +82,6 @@ export class SignupComponent {
     let password = this.applyForm.get('password')?.value;
     let confPassword = this.applyForm.get('confPassword')?.value;
 
-    console.log('confPassword: ', confPassword);
     this.confirmPasswordError = [];
     password = password?.trim();
     confPassword = confPassword?.trim();
