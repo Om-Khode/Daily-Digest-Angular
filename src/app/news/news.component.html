@@ -1,0 +1,57 @@
+<div
+  [@openClose]="isDarkMode ? 'open' : 'closed'"
+  [ngClass]="{ 'news-container': true }"
+>
+  <div class="search-container">
+    <input
+      type="text"
+      id="search"
+      [value]="searchText"
+      (selectionchange)="searchKey($event)"
+      class="search-bar"
+      placeholder="Search news"
+    />
+  </div>
+  <p class="text-center news-padding fst-italic fs-1">
+    Daily Digest - Top {{ category }} Headlines
+  </p>
+  <div
+    infinite-scroll
+    [infiniteScrollDisabled]="stopFetching"
+    [infiniteScrollDistance]="scrollDistance"
+    [infiniteScrollThrottle]="throttle"
+    (scrolled)="onScrollDown()"
+  >
+    <div class="container">
+      <div class="row">
+        <div *ngFor="let news of newsData" class="col-md-4 my-3">
+          <app-news-item
+            [newsItem]="news"
+            [isDarkMode]="isDarkMode"
+            [isLoggedIn]="isLoggedIn"
+            [bookmarkedNews]="bookmarkedNews"
+          >
+          </app-news-item>
+        </div>
+        <div *ngIf="newsData.length === 0" class="text-center">
+          <p *ngIf="searchText === ''" class="no-news-found">
+            Sorry! No news found for the category: {{ category }}
+          </p>
+          <p *ngIf="searchText !== ''" class="no-news-found">
+            Sorry! No news found for the search: <b> "{{ searchText }}"</b> in
+            the <b>"{{ category }}" </b> category
+          </p>
+        </div>
+        <div *ngIf="loading">
+          <div class="text-center">
+            <img
+              class="my-5"
+              src="../../assets/gifs/Spinner.svg"
+              alt="loading"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

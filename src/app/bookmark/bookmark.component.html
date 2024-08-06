@@ -1,0 +1,25 @@
+<div
+  [ngClass]="{ 'bg-dark text-light': isDarkMode, 'bookmark-container': true }"
+>
+  <h1 class="text-center news-padding">
+    Daily Digest - Top {{ category }} Headlines
+  </h1>
+  <div class="container">
+    <div class="row">
+      <div *ngFor="let news of newsData" class="col-md-4 my-3">
+        <app-news-item
+          [newsItem]="news"
+          [isDarkMode]="isDarkMode"
+          [isLoggedIn]="isLoggedIn"
+          [bookmarkedNews]="bookmarkedNews"
+        >
+        </app-news-item>
+      </div>
+      <div *ngIf="newsData.length === 0" class="text-center">
+        <h2 class="no-news-found">
+          No news found! Add some bookmarks to see them here.
+        </h2>
+      </div>
+    </div>
+  </div>
+</div>

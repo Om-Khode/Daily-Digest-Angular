@@ -1,0 +1,142 @@
+<div [ngClass]="{ signUpPage: true, 'bg-dark text-light': isDarkMode }">
+  <form
+    [formGroup]="applyForm"
+    [ngClass]="{
+      'container signUpForm': true,
+      'bg-dark text-light': isDarkMode
+    }"
+    (submit)="handleSubmit()"
+  >
+    <div class="mb-3">
+      <label for="name" class="form-label"> Name </label>
+      <input
+        type="name"
+        [ngClass]="{
+          'form-control form-control-sm form-input': true,
+          'bg-dark text-light': isDarkMode
+        }"
+        id="name"
+        formControlName="name"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label"> Email address </label>
+      <input
+        type="email"
+        [ngClass]="{
+          'form-control form-control-sm': true,
+          'bg-dark text-light': isDarkMode
+        }"
+        id="email"
+        formControlName="email"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label"> Password </label>
+      <div class="d-flex justify-content-center align-items-center">
+        <input
+          [type]="showPassword ? 'text' : 'password'"
+          [ngClass]="{
+            'form-control form-control-sm password-input': true,
+            'bg-dark text-light': isDarkMode
+          }"
+          id="password"
+          formControlName="password"
+          (selectionchange)="handlePasswordChange()"
+          required
+        />
+        <button
+          [ngClass]="{
+            'show-password-btn': true,
+            'bg-dark text-light': isDarkMode
+          }"
+          (click)="handleShowPassword()"
+          type="button"
+        >
+          <img
+            *ngIf="!showPassword"
+            [src]="
+              !isDarkMode
+                ? 'assets/images/eye-fill-light.svg'
+                : 'assets/images/eye-fill.svg'
+            "
+            alt=""
+          />
+          <img
+            *ngIf="showPassword"
+            [src]="
+              !isDarkMode
+                ? 'assets/images/eye-slash-fill-light.svg'
+                : 'assets/images/eye-slash-fill.svg'
+            "
+            alt=""
+          />
+        </button>
+      </div>
+    </div>
+    <ul
+      [ngClass]="{
+        'password-error-container-dark-mode': isDarkMode,
+        'password-error-container': true
+      }"
+      *ngIf="passwordError.length > 0"
+    >
+      <li *ngFor="let error of passwordError">{{ error }}</li>
+    </ul>
+    <div class="mb-3">
+      <label for="confPassword" class="form-label"> Confirm Password </label>
+      <div class="d-flex justify-content-center align-items-center">
+        <input
+          [type]="showConfirmPassword ? 'text' : 'password'"
+          [ngClass]="{
+            'form-control form-control-sm password-input': true,
+            'bg-dark text-light': isDarkMode
+          }"
+          id="confPassword"
+          (selectionchange)="handleConfirmPasswordChange()"
+          formControlName="confPassword"
+          required
+        />
+        <button
+          [ngClass]="{
+            'show-password-btn': true,
+            'bg-dark text-light': isDarkMode
+          }"
+          (click)="handleShowConfirmPassword()"
+          type="button"
+        >
+          <img
+            *ngIf="!showConfirmPassword"
+            [src]="
+              !isDarkMode
+                ? 'assets/images/eye-fill-light.svg'
+                : 'assets/images/eye-fill.svg'
+            "
+            alt=""
+          />
+          <img
+            *ngIf="showConfirmPassword"
+            [src]="
+              !isDarkMode
+                ? 'assets/images/eye-slash-fill-light.svg'
+                : 'assets/images/eye-slash-fill.svg'
+            "
+            alt=""
+          />
+        </button>
+      </div>
+    </div>
+    <ul
+      [ngClass]="{
+        'password-error-container-dark-mode': isDarkMode,
+        'password-error-container': true
+      }"
+      *ngIf="confirmPasswordError.length > 0"
+    >
+      <li *ngFor="let error of confirmPasswordError">{{ error }}</li>
+    </ul>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

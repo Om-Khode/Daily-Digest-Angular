@@ -1,0 +1,79 @@
+<div class="my-3">
+  <div
+    [@openClose]="isDarkMode ? 'open' : 'closed'"
+    [ngClass]="{
+      card: true,
+      'bg-dark text-light border border-secondary': isDarkMode
+    }"
+  >
+    <div class="d-flex justify-content-end position-absolute end-0">
+      <span class="badge rounded-pill bg-danger">
+        {{ newsItem.source.name }}
+      </span>
+    </div>
+    <div class="car-image-container">
+      <img
+        [src]="
+          newsItem.urlToImage
+            ? newsItem.urlToImage
+            : 'https://unsplash.it/640/360?news'
+        "
+        class="card-img-top"
+        alt="..."
+      />
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{ newsItem.title }}</h5>
+      <p class="card-text">{{ newsItem.description }}</p>
+      <p class="card-text">
+        <small
+          [ngClass]="{
+            'text-muted': !isDarkMode,
+          }"
+        >
+          By {{ !newsItem.author ? "Unknown" : newsItem.author }} on
+          {{ newsItem.publishedAt }}
+        </small>
+      </p>
+      <div class="d-flex align-items-center justify-content-between">
+        <a
+          rel="noreferrer"
+          href="{{ newsItem.url }}"
+          target="_blank"
+          [ngClass]="{ 'btn btn-sm' : true,
+            'btn-light': isDarkMode,
+            'btn-dark': !isDarkMode,
+        }"
+        >
+          Read More
+        </a>
+        <button
+          *ngIf="isLoggedIn"
+          (click)="!isBookmarked ? handleAddBookmark() : handleRemoveBookmark()"
+          class="btn btn-sm"
+        >
+          <img
+            *ngIf="isDarkMode"
+            [src]="
+              isBookmarked
+                ? 'assets/images/heart-fill-light.svg'
+                : 'assets/images/heart-light.svg'
+            "
+            class="heartImg"
+            alt=""
+          />
+          <img
+            *ngIf="!isDarkMode"
+            [src]="
+              isBookmarked
+                ? 'assets/images/heart-fill.svg'
+                : 'assets/images/heart.svg'
+            "
+            class="heartImg"
+            alt=""
+          />
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

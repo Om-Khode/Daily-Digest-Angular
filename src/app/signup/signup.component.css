@@ -1,0 +1,36 @@
+.signUpForm {
+  width: 30rem;
+  border: 2px solid #ccd4dc;
+  padding: 2rem;
+  border-radius: 20px;
+  max-width: 90%;
+}
+
+.signUpPage {
+  width: 100vw;
+  min-height: 100vh;
+  padding-top: 7rem;
+}
+
+.password-error-container {
+  background-color: rgba(255, 0, 0, 0.3);
+  padding: 0.5rem;
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.password-error-container-dark-mode {
+  background-color: rgba(235, 72, 86, 0.9);
+}
+
+.password-error-container li {
+  margin-left: 1rem;
+}
+
+.show-password-btn {
+  margin: 0 0.5rem;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}

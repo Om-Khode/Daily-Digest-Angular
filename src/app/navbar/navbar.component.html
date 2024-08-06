@@ -1,0 +1,135 @@
+<div>
+  <nav
+    [@openClose]="isDarkMode ? 'open' : 'closed'"
+    [ngClass]="{
+      navbar: true,
+      'fixed-top': true,
+      'navbar-expand-lg': true,
+      'navbar-dark': isDarkMode,
+      'navbar-light': !isDarkMode
+    }"
+  >
+    <div class="container-fluid">
+      <a class="navbar-brand" [routerLink]="['/']"> Daily Digest </a>
+      <div class="d-flex justify-content-center align-items-center">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a
+              [ngClass]="{
+                'nav-link': true,
+                active:
+                  title === '' || title === 'general' || title === undefined
+              }"
+              routerLink="news"
+            >
+              Home {{ category }}
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              [ngClass]="{ 'nav-link': true, active: title === 'business' }"
+              routerLink="news/business"
+            >
+              Business
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              [ngClass]="{
+                'nav-link': true,
+                active: title === 'entertainment'
+              }"
+              routerLink="news/entertainment"
+            >
+              Entertainment
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              [ngClass]="{ 'nav-link': true, active: title === 'health' }"
+              routerLink="news/health"
+            >
+              Health
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              [ngClass]="{ 'nav-link': true, active: title === 'science' }"
+              routerLink="news/science"
+            >
+              Science
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              [ngClass]="{ 'nav-link': true, active: title === 'sports' }"
+              routerLink="news/sports"
+            >
+              Sports
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              [ngClass]="{ 'nav-link': true, active: title === 'technology' }"
+              routerLink="news/technology"
+            >
+              Technology
+            </a>
+          </li>
+          <li *ngIf="isLoggedIn" class="nav-item">
+            <a
+              [ngClass]="{ 'nav-link': true, active: title === 'bookmark' }"
+              routerLink="news/bookmark"
+            >
+              Bookmarked
+            </a>
+          </li>
+        </ul>
+
+        <app-toggle-mode> </app-toggle-mode>
+
+        <div class="d-flex navbarBtnContainer">
+          <a
+            *ngIf="!isLoggedIn"
+            class="btn btn-primary mx-1 mt-1 mb-1"
+            routerLink="signup"
+            role="button"
+          >
+            Sign Up
+          </a>
+          <a
+            *ngIf="!isLoggedIn"
+            class="btn btn-primary mx-1 mt-1 mb-1"
+            routerLink="login"
+            role="button"
+          >
+            Login
+          </a>
+          <a
+            *ngIf="isLoggedIn"
+            class="btn btn-primary mx-1 mt-1 mb-1"
+            (click)="logout()"
+            routerLink="/"
+            role="button"
+          >
+            Logout
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>

@@ -1,0 +1,35 @@
+<div [ngClass]="{ loginPage: true, 'bg-dark text-light': isDarkMode }">
+  <form
+    [formGroup]="loginForm"
+    class="container loginForm"
+    (submit)="submitApplication()"
+  >
+    <div class="mb-3">
+      <label for="email" class="form-label"> Email address </label>
+      <input
+        type="email"
+        [ngClass]="{
+          'form-control form-control-sm': true,
+          'bg-dark text-light': isDarkMode
+        }"
+        id="email"
+        formControlName="email"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label"> Password </label>
+      <input
+        type="password"
+        [ngClass]="{
+          'form-control form-control-sm': true,
+          'bg-dark text-light': isDarkMode
+        }"
+        id="password"
+        formControlName="password"
+        required
+      />
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

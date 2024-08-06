@@ -1,0 +1,12 @@
+<div [ngClass]="{ 'bg-dark text-light': isDarkMode, 'verify-container': true }">
+  <img
+    src="{{
+      '/assets/images/' +
+        (res.success === true ? 'green-tick.svg' : 'red-wrong.png')
+    }}"
+    [alt]="res.success === true ? 'green tick' : 'red wrong'"
+    class="emailImg"
+  />
+
+  <h4>{{ res.message }}</h4>
+</div>
