@@ -83,7 +83,7 @@ cd backend && npm install
 
 5. Start the development server:
 
-In the `root` directory, run `ng server` to start the Node.js server.
+In the `root` directory, run `ng serve` to start the Node.js server.
 In the `backend` directory, run `npm start` to start the React development server.
 Open your browser and navigate to `http://localhost:4200` to access the News App.
 
