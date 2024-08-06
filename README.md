@@ -67,7 +67,7 @@ cd backend && npm install
 
 4. Configure the environment variables:
 
-- Create a `enviroment` file in the `enviroments` directory.
+- Create a `enviroment.ts` file in the `enviroments` directory.
 - Obtain an API key from [News API](https://newsapi.org/) by signing up for an account.
 - Add the following variables to the `.env` file:
 
